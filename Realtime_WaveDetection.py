@@ -1,9 +1,13 @@
+from tkinter import image_names
+import cv2
+import numpy as np
+from PIL import Image
+import requests
+import io
+
 # space to take screenshots / esc to escape
 
-import cv2
-
 cam = cv2.VideoCapture(2) #Webcam
-
 cv2.namedWindow("test")
 img_counter = 0
 
@@ -15,6 +19,7 @@ while True:
     cv2.imshow("test", frame)
 
     k = cv2.waitKey(1)
+    
     if k%256 == 27:
         # ESC pressed
         print("Escape hit, closing...")
@@ -27,13 +32,6 @@ while True:
         img_counter += 1
 
 cam.release()
-
-from tkinter import image_names
-import cv2
-import numpy as np
-from PIL import Image
-import requests
-import io
 
 img = cv2.imread("opencv_frame_0.jpg") 
 
@@ -120,7 +118,7 @@ x_end3 = x_offset3 + line2.shape[1]
 y_end3 = y_offset3 + line2.shape[0]
 final[y_offset3:y_end3,x_offset3:x_end3] = line2
 
-token = "9V04nddlKiqwTAWZpVuBiARZuMsY3Mgzyes3Ntw9cUG" # Give me a WAVE!
+token = " " # Your Line Notify Token
 url = 'https://notify-api.line.me/api/notify'
 HEADERS = {'Authorization': 'Bearer ' + token}
 
